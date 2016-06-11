@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Debug: Funny Jokes</string>
+    <string name="base_url">http://localhost:8080/_ah/api/</string>
+</resources>

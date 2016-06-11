@@ -11,7 +11,6 @@ import net.chiragaggarwal.jokedisplay.JokeDisplayActivity;
 import net.chiragaggarwal.jokesrepository.Jokes;
 
 public class MainActivity extends ActionBarActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
