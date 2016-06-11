@@ -35,7 +35,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void tellJoke(View view) {
-        String joke = new Jokes().fetch();
+        String joke = new Jokes().fetchDescription();
         Intent jokeDisplayIntent = new Intent(this, JokeDisplayActivity.class);
         jokeDisplayIntent.putExtra(Jokes.TAG, joke);
         startActivity(jokeDisplayIntent);

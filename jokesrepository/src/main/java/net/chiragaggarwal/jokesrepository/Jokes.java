@@ -18,7 +18,7 @@ public class Jokes {
         numberOfJokes = jokesCollection.size();
     }
 
-    public String fetch() {
+    public String fetchDescription() {
         int randomJokeIndex = (int) Math.ceil((numberOfJokes - 1) * Math.random());
         return jokesCollection.get(randomJokeIndex);
     }
