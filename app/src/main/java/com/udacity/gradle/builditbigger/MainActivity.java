@@ -7,6 +7,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import net.chiragaggarwal.jokesrepository.Jokes;
+
 public class MainActivity extends ActionBarActivity {
 
     @Override
@@ -32,6 +34,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void tellJoke(View view) {
-        Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
+        String joke = new Jokes().fetch();
+        Toast.makeText(this, joke, Toast.LENGTH_SHORT).show();
     }
 }
