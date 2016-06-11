@@ -7,14 +7,27 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.udacity.gradle.builditbigger.joke.Joke;
+import com.udacity.gradle.builditbigger.joke.JokePresenter;
+import com.udacity.gradle.builditbigger.joke.JokeService;
+import com.udacity.gradle.builditbigger.joke.JokeView;
+
 import net.chiragaggarwal.jokedisplay.JokeDisplayActivity;
 import net.chiragaggarwal.jokesrepository.Jokes;
 
-public class WelcomeActivity extends ActionBarActivity {
+import javax.inject.Inject;
+
+public class WelcomeActivity extends ActionBarActivity implements JokeView {
+    @Inject
+    public JokeService jokeService;
+    private JokePresenter jokePresenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ((FunnyJokesApp) getApplication()).getFunnyJokesDeps().inject(this);
+        jokePresenter = new JokePresenter(this, jokeService);
     }
 
 
@@ -33,10 +46,19 @@ public class WelcomeActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void tellJoke(View view) {
-        String joke = new Jokes().fetchDescription();
+    public void loadJoke(View view) {
+        jokePresenter.loadRandomJoke();
+    }
+
+    @Override
+    public void onJokeLoaded(Joke joke) {
         Intent jokeDisplayIntent = new Intent(this, JokeDisplayActivity.class);
         jokeDisplayIntent.putExtra(Jokes.TAG, joke);
         startActivity(jokeDisplayIntent);
+    }
+
+    @Override
+    public void onJokeLoadFailed() {
+
     }
 }
