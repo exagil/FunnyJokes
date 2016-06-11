@@ -3,6 +3,7 @@ package net.chiragaggarwal.jokesrepository;
 import java.util.ArrayList;
 
 public class Jokes {
+    public static final String TAG = "net.chiragaggarwal.jokesrepository.Jokes";
     private final int numberOfJokes;
     private ArrayList<String> jokesCollection;
 
