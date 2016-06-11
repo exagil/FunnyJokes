@@ -45,4 +45,11 @@ public class JokeTest {
         Joke thatJoke = new Joke("some_description");
         assertEquals(thisJoke.hashCode(), thatJoke.hashCode());
     }
+
+    @Test
+    public void testThatAJokeWithNoDescriptionIsNotEqualToOneWithDescription() {
+        Joke thisJoke = new Joke(null);
+        Joke thatJoke = new Joke("some_description");
+        assertNotEquals(thisJoke, thatJoke);
+    }
 }

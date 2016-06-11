@@ -15,7 +15,8 @@ public class Joke {
         if (o == this) return true;
         if (o == null || !(o instanceof Joke)) return false;
         Joke thatJoke = (Joke) o;
-        if (this.description.equals(thatJoke.description)) return true;
+        if ((this.description != null) && (this.description.equals(thatJoke.description)))
+            return true;
         return false;
     }
 
