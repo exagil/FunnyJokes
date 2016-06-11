@@ -1,10 +1,13 @@
 package com.udacity.gradle.builditbigger.joke;
 
-public class Joke {
-    public final String someJokeDescription;
+import com.google.gson.annotations.SerializedName;
 
-    public Joke(String someJokeDescription) {
-        this.someJokeDescription = someJokeDescription;
+public class Joke {
+    @SerializedName("jokeDescription")
+    public final String description;
+
+    public Joke(String description) {
+        this.description = description;
     }
 
     @Override
@@ -12,12 +15,12 @@ public class Joke {
         if (o == this) return true;
         if (o == null || !(o instanceof Joke)) return false;
         Joke thatJoke = (Joke) o;
-        if (this.someJokeDescription.equals(thatJoke.someJokeDescription)) return true;
+        if (this.description.equals(thatJoke.description)) return true;
         return false;
     }
 
     @Override
     public int hashCode() {
-        return someJokeDescription != null ? someJokeDescription.hashCode() : 0;
+        return description != null ? description.hashCode() : 0;
     }
 }
