@@ -18,7 +18,7 @@ public class FunnyJokesApp extends Application {
                 .build();
     }
 
-    public FunnyJokesDeps funnyJokesDeps() {
+    public FunnyJokesDeps getFunnyJokesDeps() {
         return this.funnyJokesDeps;
     }
 }

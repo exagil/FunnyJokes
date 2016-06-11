@@ -10,7 +10,7 @@ import android.view.View;
 import net.chiragaggarwal.jokedisplay.JokeDisplayActivity;
 import net.chiragaggarwal.jokesrepository.Jokes;
 
-public class MainActivity extends ActionBarActivity {
+public class WelcomeActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

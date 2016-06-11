@@ -6,9 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class MainActivityFragment extends Fragment {
+public class WelcomeFragment extends Fragment {
 
-    public MainActivityFragment() {
+    public WelcomeFragment() {
     }
 
     @Override

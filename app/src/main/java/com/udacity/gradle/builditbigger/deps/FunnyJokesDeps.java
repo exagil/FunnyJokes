@@ -1,6 +1,6 @@
 package com.udacity.gradle.builditbigger.deps;
 
-import com.udacity.gradle.builditbigger.MainActivity;
+import com.udacity.gradle.builditbigger.WelcomeActivity;
 
 import javax.inject.Singleton;
 
@@ -11,5 +11,5 @@ import dagger.Component;
         AppModule.class
 })
 public interface FunnyJokesDeps {
-    void inject(MainActivity mainActivity);
+    void inject(WelcomeActivity welcomeActivity);
 }
