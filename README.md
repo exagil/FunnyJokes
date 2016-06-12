@@ -14,3 +14,17 @@ Build Instructions (Mac OS X)
 - Start Genymotion Emulator
 - Run the App using Android Studio
 
+Running Tests
+-------------
+
+#### Unit Tests
+- `cd` to the cloned repository
+- run `./gradlew tasks` to see the available tasks
+- run `./gradlew test` to run the unit tests
+
+#### Instrumentation tests
+- `cd` to the cloned repository
+- run `./gradlew tasks` to see the available tasks
+- run `ifconfig en0` to fetch your ip address from the `inet` field
+- change the value of `base_url` in `app/src/debug/res/values/strings.xml:3` to use your ip address instead of `192.168.0.101`
+- run `./gradlew runConnectedAndroidTests` to start the backend server, run connected android tests and close the server
