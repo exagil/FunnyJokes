@@ -32,6 +32,7 @@ dependencies {
 appengine {
   httpAddress = '0.0.0.0'
   httpPort = 8080
+  daemon = true
   downloadSdk = true
   appcfg {
     oauth2 = true
