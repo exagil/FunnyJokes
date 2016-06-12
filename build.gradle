@@ -23,6 +23,8 @@ task startBackendServer() {
 }
 
 task runConnectedAndroidTests() {
+    group 'Funny Jokes'
+    description 'Starts the backend server, runs connected android tests and closes the server'
     dependsOn 'app:connectedAndroidTest'
 }
 

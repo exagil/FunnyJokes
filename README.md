@@ -12,6 +12,7 @@ Build Instructions (Mac OS X)
 - Install [Genymotion](https://www.genymotion.com/)
 - Add the local.properties file with `sdk.dir=<path_to_your_android_sdk>`
 - Start Genymotion Emulator
+- Run the local web server using `./gradlew backend:appengineRun -PisDaemonEnabled=false`
 - Run the App using Android Studio
 
 Running Tests

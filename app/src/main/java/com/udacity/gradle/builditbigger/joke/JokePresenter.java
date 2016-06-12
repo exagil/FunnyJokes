@@ -10,14 +10,17 @@ public class JokePresenter {
     }
 
     public void loadRandomJoke() {
+        jokeView.showLoader();
         jokeService.fetchRandomJoke(new JokeCallback() {
             @Override
             public void onSuccess(Joke joke) {
+                jokeView.hideLoader();
                 jokeView.onJokeLoaded(joke);
             }
 
             @Override
             public void onFailure() {
+                jokeView.hideLoader();
                 jokeView.onJokeLoadFailed();
             }
         });

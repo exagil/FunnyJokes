@@ -22,23 +22,23 @@ sourceCompatibility = JavaVersion.VERSION_1_7
 targetCompatibility = JavaVersion.VERSION_1_7
 
 dependencies {
-  appengineSdk 'com.google.appengine:appengine-java-sdk:1.9.28'
-  compile 'com.google.appengine:appengine-endpoints:1.9.28'
-  compile 'com.google.appengine:appengine-endpoints-deps:1.9.28'
-  compile 'javax.servlet:servlet-api:2.5'
-  compile project(':jokesrepository')
+    appengineSdk 'com.google.appengine:appengine-java-sdk:1.9.28'
+    compile 'com.google.appengine:appengine-endpoints:1.9.28'
+    compile 'com.google.appengine:appengine-endpoints-deps:1.9.28'
+    compile 'javax.servlet:servlet-api:2.5'
+    compile project(':jokesrepository')
 }
 
 appengine {
-  httpAddress = '0.0.0.0'
-  httpPort = 8080
-  daemon = true
-  downloadSdk = true
-  appcfg {
-    oauth2 = true
-  }
-  endpoints {
-    getClientLibsOnBuild = true
-    getDiscoveryDocsOnBuild = true
-  }
+    httpAddress = '0.0.0.0'
+    httpPort = 8080
+    daemon = isDaemonEnabled.toBoolean()
+    downloadSdk = true
+    appcfg {
+        oauth2 = true
+    }
+    endpoints {
+        getClientLibsOnBuild = true
+        getDiscoveryDocsOnBuild = true
+    }
 }

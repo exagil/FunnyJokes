@@ -28,7 +28,9 @@ public class JokePresenterTest {
             }
         }).when(jokeService).fetchRandomJoke(Matchers.<JokeCallback>any());
         jokePresenter.loadRandomJoke();
+        verify(jokeView).showLoader();
         verify(jokeView).onJokeLoaded(expectedJoke);
+        verify(jokeView).hideLoader();
     }
 
     @Test
@@ -45,6 +47,8 @@ public class JokePresenterTest {
             }
         }).when(jokeService).fetchRandomJoke(Matchers.<JokeCallback>any());
         jokePresenter.loadRandomJoke();
+        verify(jokeView).showLoader();
         verify(jokeView).onJokeLoadFailed();
+        verify(jokeView).hideLoader();
     }
 }

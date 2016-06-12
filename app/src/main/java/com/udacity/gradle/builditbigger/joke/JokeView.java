@@ -4,4 +4,8 @@ public interface JokeView {
     void onJokeLoaded(Joke joke);
 
     void onJokeLoadFailed();
+
+    void showLoader();
+
+    void hideLoader();
 }

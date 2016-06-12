@@ -1,9 +1,11 @@
 package com.udacity.gradle.builditbigger;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AlertDialog;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,12 +25,14 @@ public class WelcomeActivity extends ActionBarActivity implements JokeView {
     public JokeService jokeService;
     private JokePresenter jokePresenter;
     private View viewWelcome;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ((FunnyJokesApp) getApplication()).getFunnyJokesDeps().inject(this);
+        progressDialog = new ProgressDialog(this);
         jokePresenter = new JokePresenter(this, jokeService);
         viewWelcome = findViewById(R.id.layout_welcome);
     }
@@ -63,5 +67,16 @@ public class WelcomeActivity extends ActionBarActivity implements JokeView {
     @Override
     public void onJokeLoadFailed() {
         Snackbar.make(viewWelcome, R.string.joke_load_error, Snackbar.LENGTH_SHORT);
+    }
+
+    @Override
+    public void showLoader() {
+        progressDialog.setMessage("Loading Joke");
+        progressDialog.show();
+    }
+
+    @Override
+    public void hideLoader() {
+        progressDialog.dismiss();
     }
 }
