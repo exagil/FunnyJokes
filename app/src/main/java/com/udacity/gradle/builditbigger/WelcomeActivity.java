@@ -2,6 +2,7 @@ package com.udacity.gradle.builditbigger;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +22,7 @@ public class WelcomeActivity extends ActionBarActivity implements JokeView {
     @Inject
     public JokeService jokeService;
     private JokePresenter jokePresenter;
+    private View viewWelcome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class WelcomeActivity extends ActionBarActivity implements JokeView {
         setContentView(R.layout.activity_main);
         ((FunnyJokesApp) getApplication()).getFunnyJokesDeps().inject(this);
         jokePresenter = new JokePresenter(this, jokeService);
+        viewWelcome = findViewById(R.id.layout_welcome);
     }
 
 
@@ -53,12 +56,12 @@ public class WelcomeActivity extends ActionBarActivity implements JokeView {
     @Override
     public void onJokeLoaded(Joke joke) {
         Intent jokeDisplayIntent = new Intent(this, JokeDisplayActivity.class);
-        jokeDisplayIntent.putExtra(Jokes.TAG, joke);
+        jokeDisplayIntent.putExtra(Jokes.TAG, joke.description);
         startActivity(jokeDisplayIntent);
     }
 
     @Override
     public void onJokeLoadFailed() {
-
+        Snackbar.make(viewWelcome, R.string.joke_load_error, Snackbar.LENGTH_SHORT);
     }
 }

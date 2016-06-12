@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Debug: Funny Jokes</string>
-    <string name="base_url">http://someotherhost.com/_ah/api/</string>
+    <string name="app_name">Funny Jokes</string>
+    <string name="base_url">https://funnyjokes-1339.appspot.com/_ah/api/</string>
 </resources>
