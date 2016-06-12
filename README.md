@@ -13,6 +13,8 @@ Build Instructions (Mac OS X)
 - Add the local.properties file with `sdk.dir=<path_to_your_android_sdk>`
 - Start Genymotion Emulator
 - Run the local web server using `./gradlew backend:appengineRun -PisDaemonEnabled=false`
+- If you wish to see ads while debugging, change the DEVICE_ID field in `gradle.properties`
+  to match your device / emulator's device id
 - Run the App using Android Studio
 
 Running Tests

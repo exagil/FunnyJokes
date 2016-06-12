@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,16 +20,15 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/instructions_text_view"
         android:onClick="loadJoke"
-        android:text="@string/button_text"
+        android:text="@string/button_text" />
 
-        />
-
-    <TextView
+    <com.google.android.gms.ads.AdView
         android:id="@+id/container_ads"
         android:layout_width="match_parent"
-        android:contentDescription="@string/container_ads_welcome"
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/ads_red" />
+        android:contentDescription="@string/container_ads_welcome"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/ads_unit_bottom_welcome_screen" />
 
 </RelativeLayout>
