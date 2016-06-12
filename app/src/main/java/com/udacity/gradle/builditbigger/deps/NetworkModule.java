@@ -36,7 +36,6 @@ public class NetworkModule {
                         Log.d("chi6rag", "Request URL >> " + requestUrl);
                         try {
                             Response response = chain.proceed(request);
-                            Thread.sleep(3000);
                             Log.d("chi6rag", "Response for URL << " + response.request().url().toString());
                             Log.d("chi6rag", "Response for URL: CODE: << " + response.code());
                             Log.d("chi6rag", "Body << " + response.body().toString());

@@ -45,7 +45,7 @@ public class WelcomeActivityTest {
     public void testThatJokeIsDisplayedWhenJokeIsSuccessfullyFetched() throws InterruptedException {
         welcomeActivityTestRule.launchActivity(null);
         onView(withText("Tell Joke")).perform(click());
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         onView(withId(net.chiragaggarwal.jokedisplay.R.id.text_joke)).check(matches(isDisplayed()));
     }
 }
