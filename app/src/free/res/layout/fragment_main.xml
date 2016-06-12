@@ -26,6 +26,7 @@
     <TextView
         android:id="@+id/container_ads"
         android:layout_width="match_parent"
+        android:contentDescription="@string/container_ads_welcome"
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:background="@color/ads_red" />

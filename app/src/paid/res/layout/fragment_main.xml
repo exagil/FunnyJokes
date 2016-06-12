@@ -21,4 +21,11 @@
         android:onClick="loadJoke"
         android:text="@string/button_text" />
 
+    <TextView
+        android:id="@+id/container_ads"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone" />
+
 </RelativeLayout>
