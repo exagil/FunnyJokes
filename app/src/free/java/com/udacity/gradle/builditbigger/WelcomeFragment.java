@@ -21,9 +21,10 @@ public class WelcomeFragment extends Fragment {
     }
 
     private void setupAd(AdView containerAd) {
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(BuildConfig.DEVICE_ID)
-                .build();
+        AdRequest.Builder adRequestBuilder = new AdRequest.Builder();
+        if (BuildConfig.DEBUG)
+            adRequestBuilder.addTestDevice(BuildConfig.DEVICE_ID);
+        AdRequest adRequest = adRequestBuilder.build();
         containerAd.loadAd(adRequest);
     }
 }
