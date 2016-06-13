@@ -25,7 +25,6 @@ public class WelcomeActivity extends BaseActivity implements JokeView {
     @Inject
     public JokeService jokeService;
     private JokePresenter jokePresenter;
-    private View viewWelcome;
     private InterstitialAd interstitialAd;
 
     @Override
@@ -34,7 +33,6 @@ public class WelcomeActivity extends BaseActivity implements JokeView {
         setContentView(R.layout.activity_main);
         ((FunnyJokesApp) getApplication()).getFunnyJokesDeps().inject(this);
         jokePresenter = new JokePresenter(this, jokeService);
-        viewWelcome = findViewById(R.id.layout_welcome);
         interstitialAd = new InterstitialAd(this);
         interstitialAd.setAdUnitId(getString(R.string.ads_unit_interstitial_welcome_joke_screen));
     }
