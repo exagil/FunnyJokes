@@ -1,12 +1,16 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.udacity.gradle.builditbigger.joke.Joke;
 import com.udacity.gradle.builditbigger.joke.JokePresenter;
 import com.udacity.gradle.builditbigger.joke.JokeService;
@@ -22,6 +26,7 @@ public class WelcomeActivity extends BaseActivity implements JokeView {
     public JokeService jokeService;
     private JokePresenter jokePresenter;
     private View viewWelcome;
+    private InterstitialAd interstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +35,8 @@ public class WelcomeActivity extends BaseActivity implements JokeView {
         ((FunnyJokesApp) getApplication()).getFunnyJokesDeps().inject(this);
         jokePresenter = new JokePresenter(this, jokeService);
         viewWelcome = findViewById(R.id.layout_welcome);
+        interstitialAd = new InterstitialAd(this);
+        interstitialAd.setAdUnitId(getString(R.string.ads_unit_interstitial_welcome_joke_screen));
     }
 
 
@@ -53,15 +60,44 @@ public class WelcomeActivity extends BaseActivity implements JokeView {
     }
 
     @Override
-    public void onJokeLoaded(Joke joke) {
-        Intent jokeDisplayIntent = new Intent(this, JokeDisplayActivity.class);
-        jokeDisplayIntent.putExtra(Jokes.TAG, joke.description);
-        startActivity(jokeDisplayIntent);
+    public void onJokeLoaded(final Joke joke) {
+        AdRequest.Builder adRequestBuilder = new AdRequest.Builder();
+        if (BuildConfig.DEBUG)
+            adRequestBuilder.addTestDevice(BuildConfig.DEVICE_ID);
+        AdRequest adRequest = adRequestBuilder.build();
+        interstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+                interstitialAd.show();
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                super.onAdFailedToLoad(errorCode);
+                launchJokeActivity(joke);
+            }
+
+            @Override
+            public void onAdClosed() {
+                super.onAdClosed();
+                launchJokeActivity(joke);
+            }
+        });
+        interstitialAd.loadAd(adRequest);
     }
 
     @Override
     public void onJokeLoadFailed() {
-        Snackbar.make(viewWelcome, R.string.joke_load_error, Snackbar.LENGTH_SHORT);
+        new AlertDialog.Builder(this)
+                .setMessage(R.string.joke_load_error)
+                .setCancelable(true)
+                .setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).show();
     }
 
     @Override
@@ -72,5 +108,11 @@ public class WelcomeActivity extends BaseActivity implements JokeView {
     @Override
     public void hideLoader() {
         super.hideLoader();
+    }
+
+    private void launchJokeActivity(Joke joke) {
+        Intent jokeDisplayIntent = new Intent(WelcomeActivity.this, JokeDisplayActivity.class);
+        jokeDisplayIntent.putExtra(Jokes.TAG, joke.description);
+        startActivity(jokeDisplayIntent);
     }
 }

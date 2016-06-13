@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="ads_unit_bottom_welcome_screen">ca-app-pub-3522888505835518/5509005389</string>
+    <string name="ads_unit_interstitial_welcome_joke_screen">ca-app-pub-3522888505835518/6985738585</string>
 </resources>
