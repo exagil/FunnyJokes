@@ -15,6 +15,7 @@ Build Instructions (Mac OS X)
 - Run the local web server using `./gradlew backend:appengineRun -PisDaemonEnabled=false`
 - If you wish to see ads while debugging, change the DEVICE_ID field in `gradle.properties`
   to match your device / emulator's device id
+- change the value of `base_url` in `app/src/debug/res/values/strings.xml:3` to use your ip address instead of `192.168.0.101`
 - Run the App using Android Studio
 
 Running Tests

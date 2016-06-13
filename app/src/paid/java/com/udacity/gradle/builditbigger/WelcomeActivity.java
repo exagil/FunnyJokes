@@ -3,7 +3,6 @@ package com.udacity.gradle.builditbigger;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,7 +17,7 @@ import net.chiragaggarwal.jokesrepository.Jokes;
 
 import javax.inject.Inject;
 
-public class WelcomeActivity extends ActionBarActivity implements JokeView {
+public class WelcomeActivity extends BaseActivity implements JokeView {
     @Inject
     public JokeService jokeService;
     private JokePresenter jokePresenter;
@@ -67,13 +66,11 @@ public class WelcomeActivity extends ActionBarActivity implements JokeView {
 
     @Override
     public void showLoader() {
-        WelcomeFragment welcomeFragment = (WelcomeFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
-        welcomeFragment.showLoader();
+        super.showLoader(getString(R.string.progress_jokes));
     }
 
     @Override
     public void hideLoader() {
-        WelcomeFragment welcomeFragment = (WelcomeFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
-        welcomeFragment.hideLoader();
+        super.hideLoader();
     }
 }

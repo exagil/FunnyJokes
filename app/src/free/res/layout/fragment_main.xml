@@ -31,15 +31,4 @@
         ads:adSize="BANNER"
         ads:adUnitId="@string/ads_unit_bottom_welcome_screen" />
 
-    <com.github.ybq.android.spinkit.SpinKitView
-        android:id="@+id/progressBar"
-        style="@style/SpinKitView.Large.FoldingCube"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:visibility="gone"
-        android:layout_centerVertical="true"
-        ads:SpinKit_Color="@color/ads_red"
-        android:layout_gravity="center" />
-
 </RelativeLayout>
