@@ -23,16 +23,16 @@ Running Tests
 
 #### Unit Tests
 - `cd` to the cloned repository
-- run `./gradlew tasks` to see the available tasks
-- run `./gradlew testDebugUnitTest` to run the unit tests for debug build type
-- run `./gradlew testReleaseUnitTest` to run the unit tests for release build type
+- Run `./gradlew tasks` to see the available tasks
+- Run `./gradlew testDebugUnitTest` to run the unit tests for debug build type
+- Run `./gradlew testReleaseUnitTest` to run the unit tests for release build type
 
 #### Instrumentation tests
 - `cd` to the cloned repository
-- run `./gradlew tasks` to see the available tasks
-- run `ifconfig en0` to fetch your ip address from the `inet` field
-- change the ip address value in `base_url` located in `app/src/debug/res/values/strings.xml:3` to use your ip address instead of `192.168.0.101`
-- change the DEVICE_ID field in root level `gradle.properties` to be able to see ads in testing.
+- Run `./gradlew tasks` to see the available tasks
+- Run `ifconfig en0` to fetch your ip address from the `inet` field
+- Change the ip address value in `base_url` located in `app/src/debug/res/values/strings.xml:3` to use your ip address instead of `192.168.0.101`
+- Change the DEVICE_ID field in root level `gradle.properties` to be able to see ads in testing.
   Refer [this](http://www.androidbegin.com/tutorial/integrating-new-google-admob-banner-interstitial-ads/) to set up your device id.
-- for the test to be able to verify that the interstecial ad is shown, switch on the internet connection
-- run `./gradlew runConnectedAndroidTests` to start the backend server, run connected android tests and close the server
+- For the test to be able to verify that the interstecial ad is shown, switch on the internet connection
+- Run `./gradlew runConnectedAndroidTests` to start the backend server, run connected android tests and close the server
