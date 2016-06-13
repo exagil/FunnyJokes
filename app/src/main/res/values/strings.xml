@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Funny Jokes</string>
-    <string name="instructions">Press the button for a delicious joke!</string>
-    <string name="button_text">Tell Joke</string>
+    <string name="instructions">Hit the button for a delicious joke!</string>
+    <string name="button_text">Tell\nJoke</string>
     <string name="action_settings">Settings</string>
     <string name="joke_load_error">Unable to load jokes</string>
     <string name="container_ads_welcome">Google Ads</string>

@@ -44,15 +44,15 @@ public class WelcomeActivityInstrumentationTestPaid {
 
     @Test
     public void testThatJokeScreenIsLaunchedWhenJokeIsSuccessfullyFetched() {
-        onView(withText("Tell Joke")).check(matches(isDisplayed()));
-        onView(withText("Tell Joke")).perform(click());
+        onView(withText("Tell\nJoke")).check(matches(isDisplayed()));
+        onView(withText("Tell\nJoke")).perform(click());
         intending(hasComponent("net.chiragaggarwal.jokedisplay.JokeDisplayActivity"));
     }
 
     @Test
     public void testThatJokeIsDisplayedWhenJokeIsSuccessfullyFetched() throws InterruptedException {
         onView(withId(R.id.button_tell_joke)).check(matches(isDisplayed()));
-        onView(withText("Tell Joke")).perform(click());
+        onView(withText("Tell\nJoke")).perform(click());
         Thread.sleep(3000);
         onView(withId(net.chiragaggarwal.jokedisplay.R.id.text_joke)).check(matches(isDisplayed()));
     }

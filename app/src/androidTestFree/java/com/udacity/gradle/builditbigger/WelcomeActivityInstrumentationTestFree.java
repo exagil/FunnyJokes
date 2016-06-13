@@ -43,7 +43,7 @@ public class WelcomeActivityInstrumentationTestFree {
     @Test
     @FlakyTest
     public void testThatFreeFlavorShowsJokeAfterItDisplaysAnIterstetialAd() throws InterruptedException {
-        onView(withText("Tell Joke")).perform(click());
+        onView(withText("Tell\nJoke")).perform(click());
         Thread.sleep(3000);
         onView(withContentDescription("Web View")).check(matches(isDisplayed()));
         intending(hasComponent("net.chiragaggarwal.jokedisplay.JokeDisplayActivity"));
